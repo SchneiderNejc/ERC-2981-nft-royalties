@@ -51,4 +51,9 @@ contract Royalties is ERC721URIStorage, ERC2981, Ownable {
     {
         return super.supportsInterface(interfaceId);
     }
+
+    function burnNft(uint tokenId) external onlyOwner {
+        _burn(tokenId);
+        _resetTokenRoyalty(tokenId);
+    }
 }
