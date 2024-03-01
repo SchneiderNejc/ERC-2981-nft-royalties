@@ -18,6 +18,7 @@ contract Royalties is Ownable {
 
     function mintNFT(address recipient, string memory tokenURI) 
         public 
+        onlyOwner
         returns (uint256) 
     {
         _tokenIdsTracker.increment();
@@ -34,6 +35,7 @@ contract Royalties is Ownable {
         uint96 feeNumerator
     ) 
         public 
+        onlyOwner 
         returns (uint256) 
     {
         uint tokenId = mintNFT(recipient, tokenURI);
