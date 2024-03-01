@@ -15,4 +15,14 @@ contract Royalties is Ownable {
     {
         _setDefaultRoyalty(msg.sender, _feeNumerator);
     }
+    function mintNFT(address recipient, string memory tokenURI) 
+        public 
+        returns (uint256) 
+    {
+        _tokenIdsTracker.increment();
+        uint tokenId = _tokenIdsTracker.current();
+        _safeMint(recipient, tokenId);
+        _setTokenURI(tokenId, tokenURI);
+        return tokenId;
+    }
 }
