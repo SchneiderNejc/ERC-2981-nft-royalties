@@ -41,4 +41,14 @@ contract Royalties is ERC721URIStorage, ERC2981, Ownable {
         _setTokenRoyalty(tokenId, royaltyReceiver, feeNumerator);
         return tokenId;
     }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC2981, ERC721URIStorage)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
 }
