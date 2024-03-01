@@ -10,6 +10,7 @@ contract Royalties is ERC721URIStorage, ERC2981, Ownable {
     uint _tokenIdsTracker;
     constructor(string memory _name, string memory _symbol, uint96 _feeNumerator) 
         ERC721(_name, _symbol) 
+        Ownable(msg.sender) //@dev Ownable takes address in its constructor.
     {
         _setDefaultRoyalty(msg.sender, _feeNumerator);
     }
