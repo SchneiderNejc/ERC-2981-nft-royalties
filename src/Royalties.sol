@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Royalties is Ownable {
     uint _tokenIdsTracker;
     constructor(string memory _name, string memory _symbol, uint96 _feeNumerator) 
-        ERC712(_name, _symbol) 
+        ERC721(_name, _symbol) 
     {
         _setDefaultRoyalty(msg.sender, _feeNumerator);
     }
